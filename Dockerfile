@@ -1,6 +1,9 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
 
+# Set Node options for memory management
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 WORKDIR /app
 
 # Install dependencies (this step is cached as long as the dependencies don't change)
